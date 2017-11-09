@@ -27,3 +27,7 @@ add_path(lib_path)
 
 lib_path = osp.join(this_dir,'mftracker')
 add_path(lib_path)
+
+_path = osp.join(this_dir, '..', 'lib/roi_pooling_layer')
+add_path(_path)
+
