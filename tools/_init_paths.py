@@ -10,6 +10,7 @@
 import os.path as osp
 import sys
 import os
+import glob
 
 def add_path(path):
     if path not in sys.path:
@@ -18,7 +19,8 @@ def add_path(path):
 this_dir = osp.dirname(__file__)
 
 # build cython module
-ret = os.system('cd ' + this_dir + '../lib' + '&& make')
+if len(glob.glob(this_dir + '/../lib/utils/cython*.so')) != 2:
+    ret = os.system('cd ' + this_dir + '/../lib' + '&& make')
 
 # Add caffe to PYTHONPATH
 caffe_path = osp.join(this_dir, '..', 'caffe-fast-rcnn', 'python')
